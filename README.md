@@ -22,7 +22,7 @@ T = (3/2)(t2-t1)
 
 t1 and t2 are timestamp where y1 reaches 0.283K and y2 reaches 0.632K respectively
 
-## PID Controller
+# PID Controller
 Gains of the controller are approximated with the following table
 
 |       |	 kp	 | 	ki	 | kd |
