@@ -12,5 +12,5 @@ This repository show how to approach First-Order Linear Time Systems (LTI) with 
 ## Control-Theory
 First-Order Linear Time Systems (LTI) can be approximated to
 
-![formula](https://render.githubusercontent.com/render/math?math=e^{i\pi}=-1)
+![formula](https://render.githubusercontent.com/render/math?math=\hat{G}[s]=\frac{Ke^{-sL}}{sT+1})
 
