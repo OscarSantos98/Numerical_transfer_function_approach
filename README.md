@@ -25,7 +25,8 @@ t1 and t2 are timestamp where y1 reaches 0.283K and y2 reaches 0.632K respective
 # PID Controller
 Gains of the controller are approximated with the following table
 
-|  Controller  	 |	 kp	 | 	ki	| kd |
-|  PID	| 1.2T/L | kp/(2L)	| 0.5kpL |
+| Controller | kp | ki | kd |
+| ------ | ------ | ------ | ------ |
+| PID | 1.2T/L | kp/(2L) | 0.5kpL |
 
 *The response with the controller applied is not implemented in this code yet*
