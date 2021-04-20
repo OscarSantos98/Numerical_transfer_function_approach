@@ -9,7 +9,7 @@ from scipy.signal import lti, step, TransferFunction
 plt.style.use("ggplot")
 
 # Read data from csv file
-csv_data = pd.read_csv("assets/data.csv")
+csv_data = pd.read_csv("assets/data.csv", delimiter=";")
 print(csv_data)
 
 time = csv_data['TIME']
@@ -26,9 +26,9 @@ step_data = np.vstack((time_array,normalized_temperature_array))
 # Plots
 # First figure
 plt.plot(step_data[0], step_data[1], marker='x', markersize=2, linestyle='None')
-plt.xlabel('Time')
-plt.ylabel('Normalized temperature')
-plt.title("Experiment")
+plt.xlabel('Tiempo')
+plt.ylabel('Temperatura Normalizada')
+plt.title("Horno de Proteus (Experimento)")
 # plt.grid(True)
 plt.tight_layout()
 plt.show()
@@ -37,16 +37,16 @@ plt.show()
 plt.plot(step_data[0], step_data[1], marker='x', markersize=2, linestyle='-', label="Data from Proteus's oven")
 plt.axhline(0.283, c='k', linestyle='--')		# 
 plt.axhline(0.632, c='k', linestyle='--')
-plt.xlabel('Time')
-plt.ylabel('Normalized temperature')
-plt.title("Experiment")
+plt.xlabel('Tiempo')
+plt.ylabel('Temperatura Normalizada')
+plt.title("Horno de Proteus (Experimento)")
 # plt.grid(True)
 plt.tight_layout()
 plt.show()
 
 # Find T and L values which are necessary to evaluate a transfer function approach
-t1=13.6383				# hard-coded values from the previous figure
-t2=20.3296				# hard-coded values from the previous figure
+t1=3.614				# hard-coded values from the previous figure
+t2=10.3895				# hard-coded values from the previous figure
 T=3*(t2-t1)/2			# from control-theory
 L=t2-T					# from control-theory
 
@@ -60,12 +60,12 @@ sys = lti([1],[T, 1])
 t, y = step(sys)
 
 # Third figure
-plt.plot(step_data[0], step_data[1], marker='x', markersize=2, linestyle='-', label="Data from Proteus's oven")
+plt.plot(step_data[0], step_data[1], marker='x', markersize=2, linestyle='-', label="Datos del horno de Proteus")
 # From inverse laplace transform we know e^(-Ls) can be applied as displacement in time, so that is why L is added to the array time
-plt.plot(t+L, y, label="Step response to Transfer Function")
-plt.xlabel('Time');
-plt.ylabel('Normalized temperature')
-plt.title("Experiment vs Model")
+plt.plot(t+L, y, label="Respuesta a escalón de Función de Transferencia")
+plt.xlabel('Tiempo');
+plt.ylabel('Temperatura Normalizada')
+plt.title("Experimento vs Modelo")
 # plt.grid(True)
 plt.legend()
 plt.tight_layout()
